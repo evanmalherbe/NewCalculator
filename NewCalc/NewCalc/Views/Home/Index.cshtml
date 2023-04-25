@@ -2,7 +2,40 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div id="main" class="d-flex justify-content-center col-12">
+   <div id="calcBody" class="border border-dark col-6 row h-500"></div>
 </div>
+
+@section scripts {
+
+	<script type="text/javascript">
+
+    let eg = "";
+
+    $(document).ready(async function ()
+    {
+      buildStructure();
+    
+    });
+
+    function buildStructure()
+    {
+      let buttons = [];
+      for (let i = 1; i <= 10; i++)
+      {
+        let theButton = `<div class="d-flex col-4 border justify-content-center align-items-center h-100" id="button-${i}"><strong>${i}</strong></div>`;
+        buttons.push(theButton);
+      }
+
+      let theButtons = buttons.join("");
+      $("#calcBody").append(theButtons);
+    }
+
+    </script>
+
+  <script src="~/assets/libs/sweetalert2/sweetalert2.all.min.js"></script>
+  <script src="~/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="~/assets/libs/sweetalert2/sweetalert2.min.css">
+  <link rel="stylesheet" href="~/css/site.css">
+
+}
